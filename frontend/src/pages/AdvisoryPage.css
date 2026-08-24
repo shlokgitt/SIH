@@ -1,0 +1,177 @@
+.advisory-page {
+  min-height: 100vh;
+  background: #f7faf7;
+  padding: 70px 24px;
+  box-sizing: border-box;
+}
+
+.advisory-container {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+.advisory-header {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.advisory-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #e8f5e8;
+  color: #176b54;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.advisory-badge .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.advisory-header h1 {
+  margin: 22px 0 12px;
+  color: #103f32;
+  font-size: clamp(42px, 6vw, 64px);
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+.advisory-header p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #61766f;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.advisory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.advisory-card {
+  background: #ffffff;
+  border: 1px solid #dce8df;
+  border-radius: 20px;
+  padding: 32px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 25px rgba(16, 63, 50, 0.06);
+}
+
+.advisory-card-wide {
+  grid-column: 1 / -1;
+}
+
+.advisory-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8f5e8;
+  color: #197257;
+  margin-bottom: 20px;
+}
+
+.advisory-card-icon .material-symbols-outlined {
+  font-size: 28px;
+}
+
+.advisory-card h2 {
+  margin: 0 0 12px;
+  color: #123f32;
+  font-size: 24px;
+}
+
+.advisory-card p {
+  margin: 0;
+  color: #62756e;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.advisory-card ul {
+  margin: 22px 0 0;
+  padding-left: 20px;
+  color: #435b53;
+  line-height: 2;
+}
+
+.advisory-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 25px;
+}
+
+.advisory-info div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 18px 10px;
+  border-radius: 14px;
+  background: #f4f8f4;
+  border: 1px solid #e0ebe2;
+}
+
+.advisory-info strong {
+  color: #176b54;
+  font-size: 25px;
+}
+
+.advisory-info span {
+  color: #65766f;
+  font-size: 13px;
+}
+
+.advisory-calculator-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 22px;
+  padding: 13px 20px;
+  border-radius: 10px;
+  background: #176b54;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.advisory-calculator-btn:hover {
+  background: #105641;
+  transform: translateY(-1px);
+}
+
+.advisory-calculator-btn .material-symbols-outlined {
+  font-size: 20px;
+}
+
+@media (max-width: 700px) {
+  .advisory-page {
+    padding: 45px 18px;
+  }
+
+  .advisory-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .advisory-card-wide {
+    grid-column: auto;
+  }
+
+  .advisory-info {
+    grid-template-columns: 1fr;
+  }
+
+  .advisory-card {
+    padding: 24px;
+  }
+}

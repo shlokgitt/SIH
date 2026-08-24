@@ -1,38 +1,74 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
-import './modules/shared/styles/theme.css';
-import './modules/shared/styles/components.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
-// Import pages
-import LandingPage from './LandingPage';
-import DosageCalculator from './DosageCalculator';
-import MarketplacePage from './pages/MarketplacePage';
 
-// Placeholder pages (to be implemented by team members)
-const CertificationPage = () => <div className="page-container"><h1>QR Certification</h1><p>Coming soon - Implementation by Shriyam</p></div>;
-const AdvisoryPage = () => (
-  <div className="page-container">
-    <h1>Farmer Advisory</h1>
-    <p>Dosage Calculator - Implementation by Shreya Jaiswal</p>
-    <div style={{ marginTop: '2rem' }}>
-      <DosageCalculator />
-    </div>
-  </div>
-);
-const AnalyticsPage = () => <div className="page-container"><h1>Analytics Dashboard</h1><p>Coming soon - Implementation by Team</p></div>;
-const RegisterPage = () => <div className="page-container"><h1>Register as Operator</h1><p>Coming soon - Implementation by Team</p></div>;
+import "./App.css";
+import PublicCertificatePage from "./pages/PublicCertificatePage.tsx";
+import LandingPage from "./LandingPage.tsx";
+import AdvisoryPage from "./pages/AdvisoryPage.tsx";
+import DosageCalculator from "./DosageCalculator.tsx";
+import MarketplacePage from "./pages/MarketplacePage.tsx";
+import RegisterPage from "./pages/RegisterPage.tsx";
+import CertificationPage from "./pages/CertificationPage.tsx";
+
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/advisory" element={<AdvisoryPage />} />
-        <Route path="/marketplace" element={<MarketplacePage />} />
-        <Route path="/certification" element={<CertificationPage />} />
-        <Route path="/analytics" element={<AnalyticsPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/calculator" element={<DosageCalculator />} />
+        {/* Landing */}
+        <Route
+          path="/"
+          element={<LandingPage />}
+        />
+
+        {/* Advisory */}
+        <Route
+          path="/advisory"
+          element={<AdvisoryPage />}
+        />
+
+        {/* Calculator */}
+        <Route
+          path="/calculator"
+          element={<DosageCalculator />}
+        />
+
+        {/* Marketplace */}
+        <Route
+          path="/marketplace"
+          element={<MarketplacePage />}
+        />
+
+        {/* Register */}
+        <Route
+          path="/register"
+          element={<RegisterPage />}
+        />
+
+        {/* ==================================
+            REAL CERTIFICATION PAGE
+        ================================== */}
+        <Route
+          path="/certification"
+          element={<CertificationPage />}
+        />
+
+        {/* Public certificate */}
+        <Route
+          path="/certificate/:id"
+          element={<PublicCertificatePage />}
+        />
+
+        
+        {/* Fallback */}
+        <Route
+          path="*"
+          element={<LandingPage />}
+        />
       </Routes>
     </Router>
   );

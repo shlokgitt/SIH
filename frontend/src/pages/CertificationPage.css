@@ -1,0 +1,1027 @@
+/* ==========================================
+   AGRICORE - CERTIFICATION PAGE
+   Stitch-inspired light UI
+========================================== */
+
+.certification-page {
+  min-height: calc(100vh - 76px) !important;
+  width: 100% !important;
+
+  background: #f5f7f3 !important;
+  color: #183b2c !important;
+
+  padding: 0 28px 48px !important;
+
+  box-sizing: border-box !important;
+}
+
+.certification-shell {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.certification-header {
+  min-height: 92px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  border-bottom: 1px solid #dce4de;
+
+  background: #f5f7f3 !important;
+}
+
+.certification-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.certification-heading-icon {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #dff5bc;
+  color: #17603c;
+}
+
+.certification-header h1 {
+  margin: 0 0 5px !important;
+
+  color: #123f2e !important;
+
+  font-size: 27px !important;
+  line-height: 1.2;
+
+  font-weight: 750;
+}
+
+.certification-header p {
+  margin: 0 !important;
+
+  color: #718079 !important;
+
+  font-size: 13px !important;
+}
+
+.system-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #68766f !important;
+
+  font-size: 11px;
+
+  white-space: nowrap;
+}
+
+.system-status strong {
+  color: #287348 !important;
+
+  font-weight: 750;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #3aaa5b;
+
+  box-shadow:
+    0 0 0 3px rgba(58, 170, 91, 0.12);
+}
+
+/* ==========================================
+   MAIN CARD
+========================================== */
+
+.certification-card {
+  margin-top: 30px;
+
+  background: #ffffff !important;
+
+  border: 1px solid #d6e0d9 !important;
+
+  border-radius: 13px !important;
+
+  box-shadow:
+    0 8px 28px rgba(25, 53, 40, 0.07) !important;
+
+  overflow: hidden;
+}
+
+/* ==========================================
+   SECTIONS
+========================================== */
+
+.cert-section {
+  padding: 28px 32px;
+
+  border-bottom: 1px solid #e0e7e2;
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  margin-bottom: 22px;
+}
+
+.section-icon {
+  width: 36px;
+  height: 36px;
+
+  flex: 0 0 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #edf7e5;
+
+  color: #34794d;
+}
+
+.section-header h2 {
+  margin: 0 0 4px !important;
+
+  color: #153f2e !important;
+
+  font-size: 18px !important;
+
+  font-weight: 750;
+}
+
+.section-header p {
+  margin: 0 !important;
+
+  color: #7a867f !important;
+
+  font-size: 12px !important;
+}
+
+/* ==========================================
+   GRIDS
+========================================== */
+
+.three-column-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.analysis-grid {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 20px;
+}
+
+/* ==========================================
+   FORM
+========================================== */
+
+.field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.field label {
+  color: #42574b !important;
+
+  font-size: 11px !important;
+
+  font-weight: 750;
+}
+
+.field input {
+  width: 100%;
+
+  height: 43px;
+
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #ccd7d0 !important;
+
+  border-radius: 6px !important;
+
+  background: #ffffff !important;
+
+  color: #193c2d !important;
+
+  outline: none;
+
+  font-size: 13px !important;
+
+  transition: 0.18s ease;
+}
+
+.field input:focus {
+  border-color: #43885b !important;
+
+  box-shadow:
+    0 0 0 3px rgba(67, 136, 91, 0.1);
+}
+
+.field input::placeholder {
+  color: #9aa59f !important;
+}
+
+.field small {
+  color: #8b958f !important;
+
+  font-size: 10px;
+}
+
+/* ==========================================
+   AUTO GENERATED ID
+========================================== */
+
+.readonly-field {
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  border: 1px dashed #b9c7be;
+
+  border-radius: 6px;
+
+  background: #f7faf7 !important;
+
+  color: #7b8880 !important;
+
+  font-family: monospace;
+
+  font-size: 10px;
+
+  font-weight: 750;
+}
+
+/* ==========================================
+   ANALYSIS BOXES
+========================================== */
+
+.analysis-box {
+  border: 1px solid #d9e2dc;
+
+  border-radius: 9px;
+
+  background: #ffffff !important;
+
+  overflow: hidden;
+}
+
+.analysis-title {
+  padding: 11px 13px;
+
+  border-bottom: 1px solid #d9e2dc;
+
+  background: #f6f9f6 !important;
+
+  color: #405e4e !important;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+.analysis-fields {
+  padding: 17px;
+
+  gap: 12px;
+}
+
+.ctn-wrapper {
+  padding: 0 17px 17px;
+}
+
+/* ==========================================
+   COMPLIANCE STATUS
+========================================== */
+
+.compliance-status {
+  margin: 24px 32px;
+
+  padding: 19px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  border: 1px solid #d8e1db;
+
+  border-radius: 9px;
+
+  background: #f5f7f5 !important;
+}
+
+.compliance-status.compliant {
+  background: #edf9e9 !important;
+
+  border-color: #c5e6b8;
+}
+
+.compliance-status.non_compliant {
+  background: #fff2f0 !important;
+
+  border-color: #efc6bf;
+}
+
+.compliance-main {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+}
+
+.compliance-circle {
+  width: 44px;
+  height: 44px;
+
+  flex: 0 0 44px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e6ece8;
+
+  color: #718078;
+}
+
+.compliant .compliance-circle {
+  background: #d9f0d0;
+
+  color: #258047;
+}
+
+.non_compliant .compliance-circle {
+  background: #f8d8d3;
+
+  color: #b13c32;
+}
+
+.compliance-main > div:last-child > span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #78857e !important;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+.compliance-main h3 {
+  margin: 0 !important;
+
+  color: #1e4032 !important;
+
+  font-size: 16px !important;
+}
+
+.compliance-rules {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 3px;
+
+  color: #65736c !important;
+
+  font-family: monospace;
+
+  font-size: 9px;
+
+  text-align: right;
+}
+
+.violations {
+  margin-top: 7px;
+
+  color: #a33a31 !important;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+/* ==========================================
+   LOCATION
+========================================== */
+
+.location-section {
+  padding-top: 26px;
+}
+
+.location-grid {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 20px;
+}
+
+.coordinate-grid {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 12px;
+}
+
+/* ==========================================
+   ACTIONS
+========================================== */
+
+.certification-actions {
+  min-height: 76px;
+
+  padding: 16px 32px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  background: #fbfcfb !important;
+}
+
+.cancel-button,
+.generate-button {
+  min-height: 42px;
+
+  padding: 0 17px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  border-radius: 6px;
+
+  font-size: 12px;
+
+  font-weight: 750;
+
+  text-decoration: none;
+
+  box-sizing: border-box;
+}
+
+.cancel-button {
+  border: 1px solid #c4d0c8;
+
+  background: #ffffff !important;
+
+  color: #53645b !important;
+}
+
+.generate-button {
+  border: 1px solid #7bd20e;
+
+  background: #8bea12 !important;
+
+  color: #173a25 !important;
+
+  cursor: pointer;
+}
+
+.generate-button:hover {
+  background: #7fd50c !important;
+}
+
+.generate-button:disabled {
+  opacity: 0.48;
+
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.certification-error {
+  margin: 20px 32px 0;
+
+  padding: 12px 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  border: 1px solid #ebc3bc;
+
+  border-radius: 7px;
+
+  background: #fff0ed !important;
+
+  color: #a33d34 !important;
+
+  font-size: 12px;
+
+  font-weight: 650;
+}
+
+/* ==========================================
+   SUCCESS SCREEN
+========================================== */
+
+.success-card {
+  margin-top: 30px;
+
+  padding: 30px 32px;
+
+  background: #ffffff !important;
+
+  border: 1px solid #d5e1d9;
+
+  border-radius: 13px;
+
+  box-shadow:
+    0 8px 28px rgba(25, 53, 40, 0.07);
+}
+
+.success-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 26px;
+}
+
+.success-icon {
+  width: 51px;
+  height: 51px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #def3d5;
+
+  color: #288149;
+}
+
+.success-title > div:last-child > span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #378052;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+.success-title h2 {
+  margin: 0 0 4px !important;
+
+  color: #153e2d !important;
+
+  font-size: 23px !important;
+}
+
+.success-title p {
+  margin: 0 !important;
+
+  color: #738079 !important;
+
+  font-size: 12px !important;
+}
+
+.success-content {
+  display: grid;
+
+  grid-template-columns:
+    1fr 320px;
+
+  gap: 22px;
+}
+
+.certificate-details {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 11px;
+}
+
+.detail-card {
+  padding: 16px;
+
+  border: 1px solid #dce5df;
+
+  border-radius: 7px;
+
+  background: #f8faf8 !important;
+}
+
+.detail-card span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #7c8882 !important;
+
+  font-size: 10px;
+}
+
+.detail-card strong {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  color: #1c4433 !important;
+
+  font-size: 14px;
+}
+
+.green-text {
+  color: #278148 !important;
+}
+
+/* ==========================================
+   QR
+========================================== */
+
+.qr-card {
+  padding: 22px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  border: 1px solid #cddfd3;
+
+  border-radius: 9px;
+
+  background: #f6faf6 !important;
+}
+
+.qr-card-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 14px;
+
+  color: #3e7352 !important;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+.generated-qr {
+  width: 200px;
+
+  height: 200px;
+
+  padding: 7px;
+
+  box-sizing: border-box;
+
+  background: #ffffff !important;
+
+  border: 1px solid #d5dfd8;
+
+  border-radius: 6px;
+}
+
+.qr-placeholder {
+  width: 200px;
+
+  height: 200px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px dashed #b9c8be;
+
+  background: #ffffff;
+
+  color: #7d8982;
+
+  font-size: 12px;
+}
+
+.qr-card p {
+  margin: 12px 0;
+
+  color: #728078 !important;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+.download-button {
+  min-height: 38px;
+
+  padding: 0 14px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  border: 1px solid #adc3b4;
+
+  border-radius: 5px;
+
+  background: #ffffff !important;
+
+  color: #2d6544 !important;
+
+  font-size: 11px;
+
+  font-weight: 750;
+
+  text-decoration: none;
+}
+
+/* ==========================================
+   CERTIFICATE URL
+========================================== */
+
+.certificate-url {
+  margin-top: 20px;
+
+  padding: 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 14px;
+
+  border: 1px solid #d8e2dc;
+
+  border-radius: 7px;
+
+  background: #fafcfa !important;
+}
+
+.certificate-url span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #7d8982 !important;
+
+  font-size: 9px;
+
+  font-weight: 800;
+}
+
+.certificate-url strong {
+  color: #315943 !important;
+
+  font-size: 11px;
+
+  word-break: break-all;
+}
+
+.certificate-url button {
+  min-width: 82px;
+
+  height: 37px;
+
+  border: 1px solid #b6c8bc;
+
+  border-radius: 5px;
+
+  background: #ffffff !important;
+
+  color: #315c43 !important;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.success-actions {
+  margin-top: 22px;
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 9px;
+}
+
+.secondary-button,
+.primary-button {
+  min-height: 42px;
+
+  padding: 0 16px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 6px;
+
+  font-size: 12px;
+
+  font-weight: 750;
+
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.secondary-button {
+  border: 1px solid #b6c6bc;
+
+  background: #ffffff !important;
+
+  color: #355746 !important;
+}
+
+.primary-button {
+  border: 1px solid #79d50c;
+
+  background: #8bea12 !important;
+
+  color: #183b26 !important;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+  .analysis-grid,
+  .success-content {
+    grid-template-columns: 1fr;
+  }
+
+  .location-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .compliance-status {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .compliance-rules {
+    align-items: flex-start;
+
+    text-align: left;
+  }
+}
+
+@media (max-width: 700px) {
+  .certification-page {
+    padding: 0 14px 30px !important;
+  }
+
+  .certification-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    padding: 18px 0;
+  }
+
+  .three-column-grid,
+  .certificate-details {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-section {
+    padding: 22px 18px;
+  }
+
+  .compliance-status {
+    margin: 18px;
+  }
+
+  .certification-actions {
+    padding: 16px 18px;
+
+    flex-direction: column-reverse;
+  }
+
+  .cancel-button,
+  .generate-button {
+    width: 100%;
+  }
+
+  .success-card {
+    padding: 22px 18px;
+  }
+
+  .success-actions {
+    flex-direction: column;
+  }
+
+  .secondary-button,
+  .primary-button {
+    width: 100%;
+  }
+
+  .certificate-url {
+    align-items: stretch;
+
+    flex-direction: column;
+  }
+
+  .certificate-url button {
+    width: 100%;
+  }
+}

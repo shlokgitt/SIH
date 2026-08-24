@@ -287,3 +287,50 @@
     stroke-dashoffset: 0;
   }
 }
+
+/* =========================================
+   HOME BUTTON
+========================================= */
+
+.home-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body-md);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.home-button:hover {
+  background-color: var(--color-primary-container);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.home-button .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.home-button svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Home button positioning for different page headers */
+.advisory-header .home-button,
+.marketplace-header .home-button,
+.certification-header .home-button,
+.certificate-header .home-button,
+.dosage-header .home-button {
+  margin-bottom: 16px;
+  align-self: flex-start;
+}
