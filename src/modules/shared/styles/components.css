@@ -1,0 +1,303 @@
+/* =========================================
+   SHARED COMPONENT STYLES
+========================================= */
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.shared-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 18px;
+
+  border: none;
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.shared-button:hover {
+  transform: translateY(-1px);
+}
+
+.shared-button-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+}
+
+.shared-button-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.shared-button-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text-light);
+}
+
+.shared-button-secondary:hover {
+  background-color: var(--color-secondary-dark);
+}
+
+.shared-button-danger {
+  background-color: var(--color-error);
+  color: var(--color-text-light);
+}
+
+.shared-button-danger:hover {
+  opacity: 0.9;
+}
+
+.shared-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.shared-card {
+  background-color: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-md);
+
+  padding: var(--spacing-lg);
+
+  box-shadow: var(--shadow-sm);
+
+  font-family: var(--font-family);
+}
+
+.shared-card-title {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+
+  color: var(--color-text-primary);
+
+  font-size: var(--font-size-lg);
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.shared-input-container {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: var(--spacing-sm);
+
+  margin-bottom: var(--spacing-md);
+
+  font-family: var(--font-family);
+}
+
+.shared-input-label {
+  color: var(--color-text-primary);
+
+  font-size: var(--font-size-md);
+
+  font-weight: 600;
+}
+
+.shared-input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 11px 13px;
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-md);
+
+  background-color: var(--color-surface);
+
+  color: var(--color-text-primary);
+
+  font-size: var(--font-size-md);
+
+  outline: none;
+
+  transition: border-color 0.2s ease;
+}
+
+.shared-input:focus {
+  border-color: var(--color-primary);
+
+  box-shadow:
+    0 0 0 2px var(--color-primary-light);
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.shared-navbar {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: var(--spacing-lg);
+
+  padding: 15px 30px;
+
+  background-color: var(--color-surface);
+
+  border-bottom: 1px solid var(--color-border);
+
+  box-shadow: var(--shadow-sm);
+
+  font-family: var(--font-family);
+}
+
+.shared-navbar-brand {
+  color: var(--color-primary);
+
+  font-size: 22px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.shared-navbar-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: var(--spacing-lg);
+}
+
+.shared-navbar-link {
+  color: var(--color-text-primary);
+
+  text-decoration: none;
+
+  font-weight: 500;
+
+  transition: color 0.2s ease;
+}
+
+.shared-navbar-link:hover {
+  color: var(--color-primary);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.shared-footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: var(--spacing-lg);
+
+  padding: 30px;
+
+  background-color: var(--color-primary-dark);
+
+  color: var(--color-text-light);
+
+  font-family: var(--font-family);
+}
+
+.shared-footer p {
+  margin: 8px 0;
+}
+
+
+/* =========================================
+   LOADING SPINNER
+========================================= */
+
+.shared-loading {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: var(--spacing-md);
+
+  padding: var(--spacing-xl);
+
+  color: var(--color-text-secondary);
+
+  font-family: var(--font-family);
+}
+
+.shared-spinner {
+  width: 35px;
+  height: 35px;
+
+  border: 4px solid var(--color-primary-light);
+
+  border-top: 4px solid var(--color-primary);
+
+  border-radius: 50%;
+
+  animation: shared-spin 1s linear infinite;
+}
+
+@keyframes shared-spin {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+/* =========================================
+   ERROR STATE
+========================================= */
+
+.shared-error {
+  padding: var(--spacing-md);
+
+  border: 1px solid var(--color-error);
+
+  border-radius: var(--radius-md);
+
+  background-color: #ffebee;
+
+  color: var(--color-error);
+
+  font-family: var(--font-family);
+}
+
+.shared-error h3 {
+  margin-top: 0;
+}
