@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Info, Loader2, AlertTriangle, CheckCircle2 } from "lucide-react";
+import { api } from "./utils/api";
 
 const USAGE_TIPS = [
   "Apply the recommended quantity evenly across your field.",
@@ -8,8 +9,20 @@ const USAGE_TIPS = [
   "Store unused slurry in a cool, dry place away from direct sunlight.",
 ];
 
+interface DosageResult {
+  recommendedKgPerAcre: number;
+  totalRecommendedKg: number;
+  batchCode: string | null;
+  labValuesUsed: Record<string, string | number> | null;
+}
+
+interface LocalEstimate {
+  recommendedKgPerAcre: number;
+  totalRecommendedKg: number;
+}
+
 // Local fallback when the backend is unreachable
-function estimateLocally(cropAreaAcres) {
+function estimateLocally(cropAreaAcres: number): LocalEstimate {
   const baseDosagePerAcre = 500;
   const recommendedKgPerAcre = baseDosagePerAcre;
   const totalRecommendedKg = recommendedKgPerAcre * cropAreaAcres;
@@ -17,23 +30,18 @@ function estimateLocally(cropAreaAcres) {
 }
 
 export default function DosageCalculator() {
-  const [orderId, setOrderId] = useState("");
-  const [cropAreaAcres, setCropAreaAcres] = useState("2");
-  const [status, setStatus] = useState("idle"); // idle | loading | done | error
-  const [result, setResult] = useState(null);
-  const [usedFallback, setUsedFallback] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
-
-  // Read auth token from localStorage (same as other parts of the app)
-  function getAuthToken() {
-    return localStorage.getItem("token") || "";
-  }
+  const [orderId, setOrderId] = useState<string>("");
+  const [cropAreaAcres, setCropAreaAcres] = useState<string>("2");
+  const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
+  const [result, setResult] = useState<DosageResult | null>(null);
+  const [usedFallback, setUsedFallback] = useState<string | false>(false);
+  const [errorMsg, setErrorMsg] = useState<string>("");
 
   const gaugePercent = result
     ? Math.max(6, Math.min(100, Math.round((result.recommendedKgPerAcre / 1000) * 100)))
     : 0;
 
-  async function handleCalculate(e) {
+  async function handleCalculate(e: React.FormEvent) {
     e.preventDefault();
 
     // Validate inputs
@@ -52,22 +60,7 @@ export default function DosageCalculator() {
     setUsedFallback(false);
 
     try {
-      const token = getAuthToken();
-      const res = await fetch(
-        `/api/advisory/${orderId.trim()}?cropAreaAcres=${areaNum}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            ...(token ? { Authorization: `Bearer ${token}` } : {}),
-          },
-        }
-      );
-      if (!res.ok) {
-        const errData = await res.json().catch(() => ({}));
-        throw new Error(errData.message || "Request failed");
-      }
-      const data = await res.json();
+      const data = await api.advisory.getDosage(orderId.trim(), areaNum);
       setResult({
         recommendedKgPerAcre: Math.round(data.recommendedKgPerAcre ?? 0),
         totalRecommendedKg: Math.round(data.totalRecommendedKg ?? 0),
@@ -85,7 +78,7 @@ export default function DosageCalculator() {
         batchCode: null,
         labValuesUsed: null,
       });
-      setUsedFallback(err.message || "Unknown error");
+      setUsedFallback(err instanceof Error ? err.message : "Unknown error");
       setStatus("done");
     }
   }
@@ -316,7 +309,7 @@ export default function DosageCalculator() {
                   <div style={{ display: "flex", gap: 6, alignItems: "flex-start", marginTop: 14, fontSize: 12, color: "#FAC775" }}>
                     <AlertTriangle size={14} style={{ flexShrink: 0, marginTop: 2 }} />
                     <span style={{ wordBreak: "break-word" }}>
-                      Couldn't reach the advisory server ({typeof usedFallback === 'string' ? usedFallback : 'Failed'}) — showing a local estimate, not a live recommendation.
+                      Couldn't reach the advisory server ({usedFallback}) — showing a local estimate, not a live recommendation.
                     </span>
                   </div>
                 ) : (

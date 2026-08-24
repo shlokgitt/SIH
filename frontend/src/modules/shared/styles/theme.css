@@ -1,0 +1,150 @@
+/* =========================================
+   AGRICORE NEXUS DESIGN SYSTEM
+   Shared design system for SIH Agri App
+========================================= */
+
+:root {
+
+  /* ---------- Brand Colors ---------- */
+
+  --color-primary: #1b4332;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #1b4332;
+  --color-on-primary-container: #86af99;
+  --color-primary-fixed: #c1ecd4;
+  --color-primary-fixed-dim: #a5d0b9;
+  --color-on-primary-fixed: #002114;
+  --color-on-primary-fixed-variant: #274e3d;
+
+  --color-secondary: #4c6452;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #cce6d0;
+  --color-on-secondary-container: #506856;
+  --color-secondary-fixed: #cee9d3;
+  --color-secondary-fixed-dim: #b3cdb7;
+  --color-on-secondary-fixed: #092012;
+  --color-on-secondary-fixed-variant: #354c3b;
+
+  --color-tertiary: #401b1b;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #5a302f;
+  --color-on-tertiary-container: #d29895;
+  --color-tertiary-fixed: #ffdad8;
+  --color-tertiary-fixed-dim: #f5b7b4;
+  --color-on-tertiary-fixed: #331111;
+  --color-on-tertiary-fixed-variant: #673a39;
+
+  /* ---------- Custom Colors ---------- */
+
+  --color-vibrant-lime: #9EF01A;
+  --color-slate-gray: #4A5568;
+  --color-clay-earth: #7D4F39;
+  --color-sun-yellow: #FFD60A;
+  --color-success-green: #2D6A4F;
+  --color-error-red: #BC4749;
+
+  /* ---------- Background Colors ---------- */
+
+  --color-background: #f9faf6;
+  --color-on-background: #1a1c1a;
+  --color-surface: #f9faf6;
+  --color-on-surface: #1a1c1a;
+  --color-surface-dim: #dadad7;
+  --color-surface-bright: #f9faf6;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f3f4f1;
+  --color-surface-container: #eeeeeb;
+  --color-surface-container-high: #e8e8e5;
+  --color-surface-container-highest: #e2e3e0;
+
+  /* ---------- Surface Variants ---------- */
+
+  --color-on-surface-variant: #414844;
+  --color-outline: #717973;
+  --color-outline-variant: #c1c8c2;
+  --color-inverse-surface: #2f312f;
+  --color-inverse-on-surface: #f0f1ee;
+  --color-inverse-primary: #a5d0b9;
+  --color-surface-tint: #3f6653;
+
+  /* ---------- Error Colors ---------- */
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* ---------- Spacing ---------- */
+
+  --spacing-base: 8px;
+  --spacing-gutter: 24px;
+  --spacing-margin-mobile: 16px;
+  --spacing-margin-desktop: 48px;
+  --spacing-container-max: 1280px;
+
+  /* Legacy spacing for compatibility */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+
+  /* ---------- Border Radius ---------- */
+
+  --radius-default: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 99px;
+
+  /* Legacy radius for compatibility */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+
+  /* ---------- Shadows ---------- */
+
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.10);
+  --shadow-glass: 0 4px 12px rgba(1, 45, 29, 0.05);
+
+  /* ---------- Typography ---------- */
+
+  --font-family-headline: 'Hanken Grotesk', sans-serif;
+  --font-family-body: 'Hanken Grotesk', sans-serif;
+  --font-family-data: 'JetBrains Mono', monospace;
+
+  /* Font Sizes */
+  --font-size-headline-lg: 32px;
+  --font-size-headline-md: 24px;
+  --font-size-headline-sm: 20px;
+  --font-size-body-lg: 18px;
+  --font-size-body-md: 16px;
+  --font-size-label-caps: 12px;
+  --font-size-data-mono: 14px;
+
+  /* Line Heights */
+  --line-height-headline-lg: 40px;
+  --line-height-headline-md: 32px;
+  --line-height-headline-sm: 28px;
+  --line-height-body-lg: 28px;
+  --line-height-body-md: 24px;
+  --line-height-label-caps: 16px;
+  --line-height-data-mono: 20px;
+
+  /* Font Weights */
+  --font-weight-headline-lg: 700;
+  --font-weight-headline-md: 600;
+  --font-weight-headline-sm: 600;
+  --font-weight-body: 400;
+  --font-weight-label-caps: 600;
+  --font-weight-data-mono: 400;
+
+  /* Letter Spacing */
+  --letter-spacing-headline-lg: -0.02em;
+  --letter-spacing-label-caps: 0.05em;
+
+  /* Legacy font sizes for compatibility */
+  --font-size-sm: 14px;
+  --font-size-lg: 20px;
+  --font-size-xl: 28px;
+}
