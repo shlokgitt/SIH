@@ -15,7 +15,7 @@ const LandingPage: React.FC = () => {
       <nav className="landing-navbar">
 
         <div className="landing-brand">
-          SIH Agri App
+          DigestX
         </div>
 
         <div className="landing-nav-links">
