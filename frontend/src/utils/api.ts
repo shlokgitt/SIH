@@ -1,63 +1,44 @@
 // API utility functions for backend integration
 
-const API_BASE_URL = "http://192.168.1.15:5000/api";
-
-const getToken = () => {
-  return localStorage.getItem("token");
-};
-
-const parseResponse = async (response: Response) => {
-  const data = await response.json().catch(() => ({}));
-
-  if (!response.ok) {
-    throw new Error(data.message || "Request failed");
-  }
-
-  return data;
-};
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 export const api = {
-  // ==========================================
-  // ADVISORY ENDPOINTS
-  // ==========================================
-
+  // Advisory endpoints
   advisory: {
-    getDosage: async (
-      orderId: string,
-      cropAreaAcres: number
-    ) => {
-      const token = getToken();
+    getDosage: async (orderId: string, cropAreaAcres: number) => {
+      const token = localStorage.getItem('token');
 
       const response = await fetch(
         `${API_BASE_URL}/advisory/${orderId}?cropAreaAcres=${cropAreaAcres}`,
         {
-          method: "GET",
+          method: 'GET',
           headers: {
-            "Content-Type": "application/json",
-            ...(token
-              ? {
-                  Authorization: `Bearer ${token}`,
-                }
-              : {}),
+            'Content-Type': 'application/json',
+            ...(token ? { Authorization: `Bearer ${token}` } : {}),
           },
         }
       );
 
-      return parseResponse(response);
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || 'Request failed');
+      }
+
+      return response.json();
     },
   },
 
-  // ==========================================
-  // MARKETPLACE ENDPOINTS
-  // ==========================================
-
+  // Marketplace endpoints
   marketplace: {
     getBatches: async () => {
-      const response = await fetch(
-        `${API_BASE_URL}/marketplace/`
-      );
+      const response = await fetch(`${API_BASE_URL}/marketplace/`);
 
-      return parseResponse(response);
+      if (!response.ok) {
+        throw new Error('Failed to fetch batches');
+      }
+
+      return response.json();
     },
 
     getBatchDetail: async (id: string) => {
@@ -65,120 +46,64 @@ export const api = {
         `${API_BASE_URL}/marketplace/${id}`
       );
 
-      return parseResponse(response);
+      if (!response.ok) {
+        throw new Error('Failed to fetch batch details');
+      }
+
+      return response.json();
     },
   },
 
-  // ==========================================
-  // ORDER ENDPOINTS
-  // ==========================================
-
+  // Order endpoints
   orders: {
-    createOrder: async (
-      orderData: Record<string, unknown>
-    ) => {
-      const token = getToken();
+    createOrder: async (orderData: Record<string, unknown>) => {
+      const token = localStorage.getItem('token');
 
-      const response = await fetch(
-        `${API_BASE_URL}/orders`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            ...(token
-              ? {
-                  Authorization: `Bearer ${token}`,
-                }
-              : {}),
-          },
-          body: JSON.stringify(orderData),
-        }
-      );
+      const response = await fetch(`${API_BASE_URL}/orders`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify(orderData),
+      });
 
-      return parseResponse(response);
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+
+        throw new Error(
+          errorData.message || 'Failed to create order'
+        );
+      }
+
+      return response.json();
     },
   },
 
-  // ==========================================
-  // BATCH / CERTIFICATION ENDPOINTS
-  // ==========================================
-
+  // Batch endpoints
   batches: {
-    createBatch: async (
-      batchData: Record<string, unknown>
-    ) => {
-      const token = getToken();
-
-      if (!token) {
-        throw new Error(
-          "Authentication required. Please login first."
-        );
-      }
-
+    getCertificate: async (batchId: string) => {
       const response = await fetch(
-        `${API_BASE_URL}/batches`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(batchData),
-        }
+        `${API_BASE_URL}/batches/${batchId}/certificate`
       );
 
-      return parseResponse(response);
-    },
-
-    // IMPORTANT:
-    // This expects the MongoDB batchCode,
-    // NOT the MongoDB ObjectId.
-    //
-    // Example:
-    // BATCH-FOM-2026-001
-    //
-    // GET:
-    // /api/batches/BATCH-FOM-2026-001/certificate
-    getCertificate: async (
-      batchCode: string
-    ) => {
-      if (!batchCode) {
-        throw new Error(
-          "Batch code is required."
-        );
+      if (!response.ok) {
+        throw new Error('Failed to fetch certificate');
       }
 
-      const response = await fetch(
-        `${API_BASE_URL}/batches/${encodeURIComponent(
-          batchCode
-        )}/certificate`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      return parseResponse(response);
+      return response.json();
     },
   },
 
-  // ==========================================
-  // AUTH ENDPOINTS
-  // ==========================================
-
+  // Auth endpoints
   auth: {
-    login: async (
-      email: string,
-      password: string
-    ) => {
+    login: async (email: string, password: string) => {
       const response = await fetch(
         `${API_BASE_URL}/auth/login`,
         {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({
             email,
@@ -187,56 +112,38 @@ export const api = {
         }
       );
 
-      const data = await parseResponse(response);
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
 
-      if (data.token) {
-        localStorage.setItem(
-          "token",
-          data.token
+        throw new Error(
+          errorData.message || 'Login failed'
         );
       }
 
-      if (data.user) {
-        localStorage.setItem(
-          "user",
-          JSON.stringify(data.user)
-        );
-      }
-
-      return data;
+      return response.json();
     },
 
-    register: async (
-      userData: Record<string, unknown>
-    ) => {
+    register: async (userData: Record<string, unknown>) => {
       const response = await fetch(
         `${API_BASE_URL}/auth/register`,
         {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify(userData),
         }
       );
 
-      const data = await parseResponse(response);
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
 
-      if (data.token) {
-        localStorage.setItem(
-          "token",
-          data.token
+        throw new Error(
+          errorData.message || 'Registration failed'
         );
       }
 
-      if (data.user) {
-        localStorage.setItem(
-          "user",
-          JSON.stringify(data.user)
-        );
-      }
-
-      return data;
+      return response.json();
     },
   },
 };
